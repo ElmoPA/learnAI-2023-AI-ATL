@@ -6,23 +6,25 @@ export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
       return {
-        user: action.payload /* information from backend including token and email */,
+        token:
+          action.payload /* information from backend including token and email */,
       };
     case "LOGOUT":
-      return { user: null };
+      return { token: null };
     default:
       return state;
   }
 };
 
 export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, { user: null });
+  const [state, dispatch] = useReducer(authReducer, { token: null });
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      dispatch({ type: "LOGIN", payload: user.json });
+    const { token } = JSON.parse(localStorage.getItem("token"));
+    if (token) {
+      dispatch({ type: "LOGIN", payload: token });
     }
+    console.log(token);
   }, []);
   console.log(state);
   return (

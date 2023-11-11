@@ -9,6 +9,7 @@ import Calendar from "./Function-Component/Calendar";
 const list = [
   {
     subject: "Math",
+    subjectId: 2390480238,
     chart: [
       ["Task", "Math"],
       ["homework", 10],
@@ -19,6 +20,7 @@ const list = [
   },
   {
     subject: "Science",
+    subjectId: 239048530238,
     chart: [
       ["Task", "Science"],
       ["homework", 10],
@@ -29,6 +31,7 @@ const list = [
   },
   {
     subject: "History",
+    subjectId: 2395098680238,
     chart: [
       ["Task", "History"],
       ["homework", 10],
@@ -39,6 +42,7 @@ const list = [
   },
   {
     subject: "Computer Science",
+    subjectId: 235308680238,
     chart: [
       ["Task", "Computer Science"],
       ["homework", 10],
@@ -49,6 +53,7 @@ const list = [
   },
   {
     subject: "English",
+    subjectId: 2230940238,
     chart: [
       ["Task", "Math"],
       ["homework", 10],
@@ -59,6 +64,7 @@ const list = [
   },
   {
     subject: "Social Studies",
+    subjectId: 2390208488,
     chart: [
       ["Task", "Math"],
       ["homework", 10],

@@ -99,3 +99,8 @@
   border-left: 1px solid #cccccc;
   height: 1rem;
 }
+
+.link-each-item {
+  text-decoration: none;
+  color: #1d1d1f;
+}

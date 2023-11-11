@@ -1,0 +1,55 @@
+.subject-page-container {
+  padding: 1.5rem 5rem;
+}
+
+.tab-button-click {
+  color: #1d1d1f;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  background-color: #dde1e4;
+
+  text-decoration: none;
+}
+
+.tab-button {
+  color: #1d1d1f;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.tab-button:hover {
+  opacity: 0.9;
+}
+
+.icon {
+  margin-right: 7px;
+}
+
+.subject-container {
+  padding: 3rem 0rem;
+}
+
+li {
+  list-style: none;
+}
+
+.quiz-container {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.today-container {
+  padding: 0rem 2rem;
+}

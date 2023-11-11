@@ -7,17 +7,18 @@ export default function Login() {
     onSuccess: (tokenResponse) => {
       dispatch({ type: "LOGIN", payload: tokenResponse.access_token });
       localStorage.setItem(
-        "user",
+        "token",
         JSON.stringify({ token: tokenResponse.access_token })
       );
       console.log(tokenResponse);
     },
+
     onError: () => console.log("fail"),
   });
   return (
     <div className="login-container py-2">
       <div className="row">
-        <div className="col-8"></div>
+        <div className="col-lg-8 col-md-0 col-sm-0"></div>
         <div className="login-box col-lg-3 col-md-12 col-sm-12">
           <h2 className="mb-4 ">Login</h2>
           <form className=" d-flex flex-column mb-2">

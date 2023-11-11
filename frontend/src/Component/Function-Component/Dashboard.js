@@ -8,23 +8,28 @@ export default function Dashboard({ list, options }) {
           {list.map((item, index) => (
             <div className="col-sm-12 col-md-6 col-lg-3 mb-5" key={index}>
               <div className="each-item">
-                <div className="top-part d-flex flex-column">
-                  <h3 className="d-flex justify-content-center">
-                    {item.subject}
-                  </h3>
-                  <Chart
-                    chartType="PieChart"
-                    data={item.chart}
-                    width="100%"
-                    height="300px"
-                    options={options}
-                  />
-                </div>
-                <hr />
-                <div className="bottom-part">
-                  <h4>Task</h4>
-                  {item.quiz}
-                </div>
+                <a
+                  className="link-each-item"
+                  href={`/subject/${item.subjectId}`}
+                >
+                  <div className="top-part d-flex flex-column">
+                    <h3 className="d-flex justify-content-center">
+                      {item.subject}
+                    </h3>
+                    <Chart
+                      chartType="PieChart"
+                      data={item.chart}
+                      width="100%"
+                      height="300px"
+                      options={options}
+                    />
+                  </div>
+                  <hr />
+                  <div className="bottom-part">
+                    <h4>Task</h4>
+                    {item.quiz}
+                  </div>
+                </a>
               </div>
             </div>
           ))}
