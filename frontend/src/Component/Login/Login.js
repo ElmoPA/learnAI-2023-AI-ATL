@@ -5,7 +5,7 @@ export default function Login() {
     <div className="login-container py-2">
       <div className="row">
         <div className="col-8"></div>
-        <div className="col-4 p-5">
+        <div className="login-box col-lg-3 col-md-12 col-sm-12">
           <h2 className="mb-4 ">Login</h2>
           <form className=" d-flex flex-column mb-2">
             <label className="mb-2 ">Email</label>
@@ -15,15 +15,17 @@ export default function Login() {
             <button className="login-page-button ">Log in</button>
           </form>
           <p className="d-flex justify-content-center mb-2">or</p>
-          <GoogleLogin
-            className="my-custom-google-button"
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
-            }}
-            onError={() => {
-              console.log("Login failed");
-            }}
-          />
+          <div className="d-flex align-items-stretch">
+            <GoogleLogin
+              className="google-login-button"
+              onSuccess={(credentialResponse) => {
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log("Login failed");
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
