@@ -1,8 +1,17 @@
 import "../../Assets/style/Login/Login.css";
 import { useGoogleLogin } from "@react-oauth/google";
+import { useAuthContext } from "../../Hook/Login/useAuthContext";
 export default function Login() {
+  const { dispatch } = useAuthContext();
   const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onSuccess: (tokenResponse) => {
+      dispatch({ type: "LOGIN", payload: tokenResponse.access_token });
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ token: tokenResponse.access_token })
+      );
+      console.log(tokenResponse);
+    },
     onError: () => console.log("fail"),
   });
   return (
@@ -16,12 +25,12 @@ export default function Login() {
             <input type="email" className="mb-3 login-input"></input>
             <label className="mb-2 ">Password</label>
             <input type="password" className=" mb-3 login-input"></input>
-            <button className="login-page-button ">Log in</button>
+            <button className="login-page-button">Log in</button>
           </form>
           <p className="d-flex justify-content-center mb-2">or</p>
 
           <button
-            className="login-page-button d-flex align-items-center justify-content-center w-100 mb-5"
+            className="google-login-button d-flex align-items-center justify-content-center w-100 mb-5"
             onClick={() => login()}
           >
             <img
@@ -29,7 +38,7 @@ export default function Login() {
               width="20px"
               src={require("../../Assets/picture/Google_logo.png")}
             />
-            <p className="mb-0">Google</p>
+            <p className="mb-0 login-text">Google</p>
           </button>
 
           <div className="text-end no-account">

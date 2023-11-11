@@ -26,8 +26,16 @@
 
 .login-page-button {
   border-radius: 20px;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: solid 1px #1d1d1f;
+  color: #1d1d1f;
+}
+.google-login-button {
+  border-radius: 20px;
+  padding-top: 11px;
+  padding-bottom: 11px;
   background-color: transparent;
   border: solid 1px #1d1d1f;
   color: #1d1d1f;
@@ -60,5 +68,9 @@
 }
 
 .no-account {
+  font-size: 14px;
+}
+
+.login-text {
   font-size: 14px;
 }
