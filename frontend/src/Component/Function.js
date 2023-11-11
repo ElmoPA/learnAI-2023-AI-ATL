@@ -4,6 +4,8 @@ import "../Assets/style/Dashboard/Dashboard.css";
 import { useState } from "react";
 import Dashboard from "./Function-Component/Dashboard";
 import Calendar from "./Function-Component/Calendar";
+
+/*integrate data from backend */
 const list = [
   {
     subject: "Math",
@@ -67,7 +69,7 @@ const list = [
   },
 ];
 
-export const options = {
+const options = {
   pieHole: 0.4,
   is3D: false,
   pieSliceText: "none",
@@ -80,6 +82,8 @@ export const options = {
 
 export default function Function() {
   const [tab, setTab] = useState("dashboard");
+  // integrate the list of subject from backend
+
   return (
     <div className="dashboard-container">
       <div className="top-part d-flex justify-content-start  mb-4">

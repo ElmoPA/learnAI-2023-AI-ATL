@@ -1,6 +1,10 @@
 import "../../Assets/style/Login/Login.css";
-import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 export default function Login() {
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onError: () => console.log("fail"),
+  });
   return (
     <div className="login-container py-2">
       <div className="row">
@@ -15,16 +19,23 @@ export default function Login() {
             <button className="login-page-button ">Log in</button>
           </form>
           <p className="d-flex justify-content-center mb-2">or</p>
-          <div className="d-flex align-items-stretch">
-            <GoogleLogin
-              className="google-login-button"
-              onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-              }}
-              onError={() => {
-                console.log("Login failed");
-              }}
+
+          <button
+            className="login-page-button d-flex align-items-center justify-content-center w-100 mb-5"
+            onClick={() => login()}
+          >
+            <img
+              style={{ marginRight: "5px" }}
+              width="20px"
+              src={require("../../Assets/picture/Google_logo.png")}
             />
+            <p className="mb-0">Google</p>
+          </button>
+
+          <div className="text-end no-account">
+            <p>
+              Don't have an account? <a href="/signup">Sign up</a>
+            </p>
           </div>
         </div>
       </div>
