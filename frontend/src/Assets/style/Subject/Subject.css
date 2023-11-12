@@ -15,6 +15,14 @@
   text-decoration: none;
 }
 
+@media only screen and (min-width: 992px) {
+  .vertical-line-subject {
+    background-color: #eeeeee;
+    width: 1px;
+    height: 70vh;
+  }
+}
+
 .tab-button {
   color: #1d1d1f;
   padding: 10px 20px;
@@ -49,6 +57,29 @@ li {
   border-radius: 10px;
 }
 
+.each-flashcard {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+}
 .today-container {
   padding: 0rem 2rem;
+}
+
+.flashcard-set-container {
+  max-height: 15rem;
+  overflow-y: scroll;
+}
+
+.flashcard-set-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.flashcard-set-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.flashcard-set-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
 }
