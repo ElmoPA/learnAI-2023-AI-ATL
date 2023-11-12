@@ -18,7 +18,15 @@ export default function Login() {
   return (
     <div className="login-container py-2">
       <div className="row">
-        <div className="col-lg-8 col-md-0 col-sm-0"></div>
+        <div className="col-lg-7 d-none d-lg-flex justify-content-center align-items-center">
+          <img
+            className="login_image"
+            src={require("../../Assets/picture/Login_image.png")}
+            style={{ width: "90%", height: "auto" }}
+          />
+          <div className="vertical-line-subject" />
+        </div>
+
         <div className="login-box col-lg-3 col-md-12 col-sm-12">
           <h2 className="mb-4 ">Login</h2>
           <form className=" d-flex flex-column mb-2">
