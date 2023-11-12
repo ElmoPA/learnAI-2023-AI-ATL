@@ -1,48 +1,48 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import "../../Assets/style/Dashboard/CustomToolBar.css";
 export const CustomToolbar = ({ date, onNavigate, onView, view, label }) => {
+  const handleViewChange = (event) => {
+    onView(event.target.value);
+  };
   return (
     <div className="rbc-toolbar calendar-theme">
       <span className="rbc-btn-group">
-        <button type="button" onClick={() => onNavigate("TODAY")}>
+        <button
+          className="today-button"
+          type="button"
+          onClick={() => onNavigate("TODAY")}
+        >
           Today
         </button>
-        <button type="button" onClick={() => onNavigate("PREV")}>
-          Back
+        <button
+          className="arrow-button"
+          type="button"
+          onClick={() => onNavigate("PREV")}
+        >
+          <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
         </button>
-        <button type="button" onClick={() => onNavigate("NEXT")}>
-          Next
+        <button
+          className="arrow-button"
+          type="button"
+          onClick={() => onNavigate("NEXT")}
+        >
+          <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
         </button>
       </span>
       <span className="rbc-toolbar-label">{label}</span>
-      <span className="rbc-btn-group">
-        <button
-          type="button"
-          onClick={() => onView("month")}
-          className={view === "month" ? "active" : ""}
-        >
-          Month
+
+      <div className="view-dropdown">
+        <button disabled={view} className="view-button">
+          {view.charAt(0).toUpperCase() + view.slice(1)}
         </button>
-        <button
-          type="button"
-          onClick={() => onView("week")}
-          className={view === "week" ? "active" : ""}
-        >
-          Week
-        </button>
-        <button
-          type="button"
-          onClick={() => onView("day")}
-          className={view === "day" ? "active" : ""}
-        >
-          Day
-        </button>
-        <button
-          type="button"
-          onClick={() => onView("agenda")}
-          className={view === "agenda" ? "active" : ""}
-        >
-          Agenda
-        </button>
-      </span>
+        <div className="view-menu">
+          <div onClick={() => onView("month")}>Month</div>
+          <div onClick={() => onView("week")}>Week</div>
+          <div onClick={() => onView("day")}>Day</div>
+          <div onClick={() => onView("agenda")}>Agenda</div>
+        </div>
+      </div>
     </div>
   );
 };

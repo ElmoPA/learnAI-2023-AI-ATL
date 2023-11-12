@@ -1,0 +1,85 @@
+.today-button {
+  border: 1px solid #eeeeee !important;
+  border-radius: 5px !important;
+}
+
+.today-button:focus,
+.today-button:active {
+  background-color: #eeeeee !important;
+
+  outline: none !important;
+  box-shadow: none !important;
+}
+.arrow-button {
+  margin-left: 0.3rem !important;
+}
+.arrow-button:hover {
+  background-color: transparent !important;
+  opacity: 0.9 !important;
+}
+
+.arrow-button:active {
+  background-color: transparent !important;
+}
+
+.arrow-button:active,
+.arrow-button:focus {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.rbc-toolbar-label {
+  font-size: 20px;
+  color: #2d2d2f;
+}
+.view-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.view-button {
+  padding: 5px 10px;
+
+  border: 1px solid #eeeeee !important;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.view-button:active,
+.view-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: white !important;
+  border-color: #ddd !important;
+}
+.view-button:hover {
+  background-color: #f8f8f8 !important;
+}
+
+.view-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 70px;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.view-menu div {
+  color: black;
+  padding: 8px 11px 8px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.view-menu div:hover {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.view-dropdown:hover .view-menu {
+  display: block;
+}
