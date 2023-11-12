@@ -4,6 +4,7 @@ import { useState } from "react";
 import "../../Assets/style/Dashboard/Calendar.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
+import { CustomToolbar } from "./CustomToolbar";
 const localizer = momentLocalizer(moment);
 
 const events = [
@@ -29,23 +30,36 @@ const events = [
 ];
 
 export default function _Calendar() {
-  const [value, onChange] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
   return (
     <div className="calendar-tab-container">
       <div className="row">
-        <div className="left-component  py-3 col-3 d-flex">
+        <div className="left-component  py-3 col-lg-3 d-flex">
           <div className="col-11 ">
-            <Calendar onChange={onChange} value={value} className="calendar" />
+            <Calendar
+              onChange={handleDateChange}
+              value={selectedDate}
+              className="calendar"
+            />
           </div>
           <div className="vertical-line" />
         </div>
-        <div className="rigth component col-9">
+        <div className="rigth component col-lg-9">
           <BigCalendar
             localizer={localizer}
             events={events}
             startAccessor="start"
             endAccessor="end"
+            components={{
+              toolbar: CustomToolbar,
+            }}
             style={{ height: 500 }}
+            date={selectedDate}
+            defaultDate={selectedDate}
           />
         </div>
       </div>

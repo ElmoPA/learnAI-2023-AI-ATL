@@ -56,3 +56,39 @@
   width: 1px;
   height: 70vh;
 }
+
+.rbc-toolbar.calendar-theme {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.rbc-toolbar .rbc-btn-group button {
+  color: #5f6368;
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.rbc-toolbar .rbc-btn-group button:hover {
+  background-color: #f1f1f1;
+}
+
+.rbc-toolbar .rbc-btn-group .active {
+  background-color: #e8e8e8;
+}
+
+.rbc-toolbar-label {
+  padding: 0 15px;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.rbc-calendar::-webkit-scrollbar {
+  display: none;
+}

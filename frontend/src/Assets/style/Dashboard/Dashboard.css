@@ -29,7 +29,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: box-shadow 0.3s;
+  transition: 0.3s;
   background-color: #dde1e4;
 
   text-decoration: none;

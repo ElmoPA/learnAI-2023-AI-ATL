@@ -1,5 +1,7 @@
 import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import "../../../Assets/style/Subject/Subject-Component/Info.css";
+import { CustomToolbar } from "../../Function-Component/CustomToolbar";
 const localizer = momentLocalizer(moment);
 const events = [
   {
@@ -25,11 +27,14 @@ export default function Info() {
               <li>Geometry</li>
             </div>
           </div>
-          <div className="vertical-line text-end" />
+          <div className="vertical-line-subject text-end" />
         </div>
-        <div className="col-lg-8 d-flex justify-content-center align-items-center">
+        <div className="col-lg-8">
           <BigCalendar
             localizer={localizer}
+            components={{
+              toolbar: CustomToolbar,
+            }}
             events={events}
             startAccessor="start"
             endAccessor="end"
