@@ -5,17 +5,8 @@ import { useMediaQuery } from "react-responsive";
 import "../../../Assets/style/Subject/Subject-Component/Info.css";
 import { CustomToolbar } from "../../Function-Component/CustomToolbar";
 const localizer = momentLocalizer(moment);
-const events = [
-  {
-    title: "Math Meeting",
-    start: new Date(2023, 3, 20, 10, 0), // Year, Month (0-based), Day, Hours, Minutes
-    end: new Date(2023, 3, 20, 12, 0),
-    allDay: false,
-  },
-  // ... more events
-];
 
-export default function Info() {
+export default function Info({ events }) {
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1065px)" });
   const isSmallScreen = useMediaQuery({ query: "(max-width: 1064px)" });
   return (
