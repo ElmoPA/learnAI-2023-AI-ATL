@@ -41,7 +41,6 @@
 
 .view-button {
   padding: 5px 10px;
-
   border: 1px solid #eeeeee !important;
   border-radius: 4px;
   background-color: white;
@@ -70,9 +69,10 @@
 
 .view-menu div {
   color: black;
-  padding: 8px 11px 8px 16px;
+  padding: 8px 14px 8px 14px;
   text-decoration: none;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .view-menu div:hover {

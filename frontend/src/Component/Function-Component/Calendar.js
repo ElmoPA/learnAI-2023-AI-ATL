@@ -10,7 +10,7 @@ const localizer = momentLocalizer(moment);
 const events = [
   {
     title: "Meeting with Team",
-    start: new Date(2023, 3, 20, 10, 0), // Year, Month (0-based), Day, Hours, Minutes
+    start: new Date(2023, 11, 14, 10, 0), // Year, Month (0-based), Day, Hours, Minutes
     end: new Date(2023, 3, 20, 12, 0),
     allDay: false,
   },
@@ -33,6 +33,9 @@ export default function _Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
+  const handleNavigate = (newDate) => {
     setSelectedDate(newDate);
   };
   return (
@@ -60,6 +63,7 @@ export default function _Calendar() {
             style={{ height: 500 }}
             date={selectedDate}
             defaultDate={selectedDate}
+            onNavigate={handleNavigate}
           />
         </div>
       </div>

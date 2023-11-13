@@ -5,11 +5,13 @@ import {
   faBook,
   faChartColumn,
   faCalendar,
+  faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 import CalendarSubject from "./Subject-Component/CalendarSubject";
 import { useMediaQuery } from "react-responsive";
 import Info from "./Subject-Component/Info";
 import Statistics from "./Subject-Component/Statistics";
+import Document from "./Subject-Component/Document";
 
 const events = [
   {
@@ -49,6 +51,18 @@ export default function Subject() {
           ></FontAwesomeIcon>
           Statistics
         </button>
+        <button
+          className={tab === "documents" ? "tab-button-click" : "tab-button"}
+          onClick={() => {
+            setTab("documents");
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faNewspaper}
+            className="icon"
+          ></FontAwesomeIcon>
+          Document
+        </button>
         {isSmallScreen && (
           <button
             className={tab === "calendar" ? "tab-button-click" : "tab-button"}
@@ -64,11 +78,14 @@ export default function Subject() {
           </button>
         )}
       </div>
-      {tab === "subject" && <Info events={events} />}
-      {tab === "statistics" && <Statistics />}
-      {isSmallScreen && tab === "calendar" && (
-        <CalendarSubject events={events} />
-      )}
+      <div>
+        {tab === "subject" && <Info events={events} />}
+        {tab === "statistics" && <Statistics />}
+        {tab === "documents" && <Document />}
+        {isSmallScreen && tab === "calendar" && (
+          <CalendarSubject events={events} />
+        )}
+      </div>
     </div>
   );
 }
