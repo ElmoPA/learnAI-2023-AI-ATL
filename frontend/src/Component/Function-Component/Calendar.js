@@ -1,6 +1,7 @@
 import { Calendar } from "react-calendar";
 import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import "../../Assets/style/Dashboard/Calendar.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
@@ -31,7 +32,7 @@ const events = [
 
 export default function _Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 1065px)" });
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
   };
@@ -40,33 +41,54 @@ export default function _Calendar() {
   };
   return (
     <div className="calendar-tab-container">
-      <div className="row">
-        <div className="left-component  py-3 col-lg-3 d-flex">
-          <div className="col-11 ">
-            <Calendar
-              onChange={handleDateChange}
-              value={selectedDate}
-              className="calendar"
+      {!isSmallScreen && (
+        <div className="row">
+          <div className="left-component  py-3 col-lg-3 d-flex">
+            <div className="col-11 ">
+              <Calendar
+                onChange={handleDateChange}
+                value={selectedDate}
+                className="calendar"
+              />
+            </div>
+            <div className="vertical-line" />
+          </div>
+          <div className="rigth component col-lg-9">
+            <BigCalendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              components={{
+                toolbar: CustomToolbar,
+              }}
+              style={{ height: 500 }}
+              date={selectedDate}
+              defaultDate={selectedDate}
+              onNavigate={handleNavigate}
             />
           </div>
-          <div className="vertical-line" />
         </div>
-        <div className="rigth component col-lg-9">
-          <BigCalendar
-            localizer={localizer}
-            events={events}
-            startAccessor="start"
-            endAccessor="end"
-            components={{
-              toolbar: CustomToolbar,
-            }}
-            style={{ height: 500 }}
-            date={selectedDate}
-            defaultDate={selectedDate}
-            onNavigate={handleNavigate}
-          />
+      )}
+      {isSmallScreen && (
+        <div className="row">
+          <div className="rigth component col-12">
+            <BigCalendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              components={{
+                toolbar: CustomToolbar,
+              }}
+              style={{ height: 500 }}
+              date={selectedDate}
+              defaultDate={selectedDate}
+              onNavigate={handleNavigate}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
