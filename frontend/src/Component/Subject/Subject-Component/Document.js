@@ -39,20 +39,21 @@ export default function Document() {
         </div>
       </div>
       <div>
-        <div className="bottom-part  d-flex align-items-center justify-content-between flex-column mt-5">
-          <div className="quiz-title mb-3">
+        <div className="quiz-document-container  d-flex align-items-center justify-content-between flex-column mt-5">
+          <div className="quiz-title mb-3 mt-5">
             <h2>Quiz/Exam</h2>
           </div>
           <div className="quiz-items-container mb-4">
             {/*map the items in here */}
+            <div className="quiz-exam-container">
+              {quiz_list.map((quiz, index) => (
+                <div className="each-quiz-container" key={index}>
+                  {quiz.subject}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="quiz-exam-container">
-            {quiz_list.map((item, index) => {
-              <div className="each-quiz-container" key={index}>
-                {item.subject}
-              </div>;
-            })}
-          </div>
+
           <div className="row">
             <div className="col-11">
               <form

@@ -3,9 +3,11 @@
     padding-inline: 22.5rem;
     padding-bottom: 3rem;
   }
-}
+  .quiz-document-container {
+    border-top: solid 2px #eeeeee;
 
-.quiz-exam-container {
+    padding-inline: 3rem;
+  }
 }
 
 .trash_button {
@@ -66,4 +68,13 @@
 
 .quiz-items-container::-webkit-scrollbar-track {
   background-color: #f5f5f5;
+}
+
+.each-quiz-container {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+  margin-bottom: 10px;
 }
