@@ -6,7 +6,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-.rbc-toolbar .rbc-btn-group button {
+.rbc-toolbari .rbc-btn-group button {
   color: #5f6368;
   background: none;
   border: none;
@@ -36,4 +36,70 @@
   font-weight: 500;
   flex-grow: 1;
   text-align: center;
+}
+
+.quiz-set-container {
+  height: 10rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.quiz-set-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.quiz-set-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.quiz-set-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+.each-quiz {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+.each-flashcard {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+.link {
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+li {
+  list-style: none;
+}
+
+.today-container {
+  padding: 0rem 2rem;
+}
+
+.flashcard-set-container {
+  height: 10rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.flashcard-set-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.flashcard-set-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.flashcard-set-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
 }

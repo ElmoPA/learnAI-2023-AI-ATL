@@ -18,7 +18,6 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { token: null });
-
   useEffect(() => {
     const { token } = JSON.parse(localStorage.getItem("token"));
     if (token) {

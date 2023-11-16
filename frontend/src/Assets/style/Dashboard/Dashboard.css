@@ -104,3 +104,15 @@
   text-decoration: none;
   color: #1d1d1f;
 }
+
+.each-item {
+  padding: 2rem 2.5rem 3rem 2.5rem;
+  border-radius: 15px;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 5px 1px;
+}
+
+.each-item:hover {
+  opacity: 0.9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Increase shadow */
+}

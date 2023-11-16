@@ -1,59 +1,121 @@
-import { Chart } from "react-google-charts";
+import React from "react";
+import { useState, useEffect } from "react";
+import "../../Assets/style/Dashboard/Dashboard.css";
+import LinearProgress, {
+  LinearProgressProps,
+} from "@mui/material/LinearProgress";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { linearProgressClasses } from "@mui/material/LinearProgress";
+import { styled } from "@mui/material/styles";
 
-export default function Dashboard({ list, options }) {
+function randomColor(index) {
+  const setColor = ["#fcf75e", "#f7a072", "#b5e2fa", "#0fa3b1"];
+  return setColor[index % setColor.length];
+}
+
+const BorderLinearProgress = styled(LinearProgress)(({ theme, barcolor }) => ({
+  height: 20,
+  borderRadius: 10,
+  [`&.${linearProgressClasses.colorPrimary}`]: {
+    backgroundColor:
+      theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
+  },
+  [`& .${linearProgressClasses.bar}`]: {
+    borderRadius: 10,
+    backgroundColor: barcolor,
+  },
+}));
+
+function LinearProgressWithLabel({ value, randomColor }) {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress >= value) {
+          clearInterval(interval);
+          return value;
+        }
+        return Math.min(prevProgress + value / 100, value);
+      });
+    }, 5);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [value]);
+
   return (
-    <div className="row">
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        ml: 0,
+      }}
+    >
+      <Typography
+        variant="body2"
+        color="#1d1d1f"
+        sx={{ fontSize: "1.25rem", width: "30%" }}
+      >
+        {`${Math.round(progress)}%`}
+      </Typography>
+      <BorderLinearProgress
+        variant="determinate"
+        value={progress}
+        barcolor={randomColor}
+        style={{ width: "100%" }}
+      />
+    </Box>
+  );
+}
+export default function Dashboard({ list }) {
+  const [progressValues, setProgressValues] = useState(list.map(() => 0));
+
+  useEffect(() => {
+    const updateProgress = () => {
+      setProgressValues(list.map((item) => item.progress));
+    };
+
+    const timer = setTimeout(updateProgress, 0);
+    return () => clearTimeout(timer);
+  }, [list]);
+  return (
+    <div className="row custom-gap">
       <div className="items-container">
         <div className="row gx-5">
           {list.map((item, index) => (
-            <div className="col-sm-12 col-md-6 col-lg-3 mb-5" key={index}>
-              <div className="each-item">
-                <a
-                  className="link-each-item"
-                  href={`/subject/${item.subjectId}`}
-                >
-                  <div className="top-part d-flex flex-column">
-                    <h3 className="d-flex justify-content-center">
-                      {item.subject}
-                    </h3>
-                    <Chart
-                      chartType="PieChart"
-                      data={item.chart}
-                      width="100%"
-                      height="300px"
-                      options={options}
-                    />
+            <div
+              className="col-sm-12 col-md-6 col-lg-4 mb-5 glass-effect"
+              key={index}
+            >
+              <a className="link-each-item" href={`/subject/${item.subjectId}`}>
+                <div className="each-item">
+                  <div className="top-part d-flex flex-column mb-4">
+                    <h3 className="d-flex">{item.subject}</h3>
                   </div>
-                  <hr />
-                  <div className="bottom-part">
-                    <h4>Task</h4>
-                    {item.quiz}
+                  <div className="bottom-part mb-4">
+                    <h5>
+                      {/*fetch the amount of task and put it here */}
+                      {item.task} Task
+                    </h5>
                   </div>
-                </a>
-              </div>
+                  <div className="row d-flex align-items-center">
+                    <Box sx={{ width: "100%" }}>
+                      <LinearProgressWithLabel
+                        value={progressValues[index]}
+                        randomColor={randomColor(index)}
+                      />
+                    </Box>
+                  </div>
+                </div>
+              </a>
             </div>
           ))}
         </div>
       </div>
-      {/* <div className="add-item-container d-flex flex-column col-sm-2 col-md-0 col-lg-0 p-3">
-        <div className="add-item-title">
-          <h5 className="mb-3 text-center">Add Items</h5>
-        </div>
-
-        <div className="add-list-part">
-          {list.map((item, index) => (
-            <li
-              className="list-add d-flex mb-2 d-flex align-items-center"
-              key={index}
-            >
-              <button className="add-button">+</button>
-              <div className="subject-text flex-grow-1 text-center">
-                {item.subject}
-              </div>
-            </li>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }

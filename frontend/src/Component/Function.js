@@ -10,67 +10,43 @@ const list = [
   {
     subject: "Math",
     subjectId: 2390480238,
-    chart: [
-      ["Task", "Math"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 10,
+    task: 1,
     quiz: "Math quiz",
   },
   {
     subject: "Science",
     subjectId: 239048530238,
-    chart: [
-      ["Task", "Science"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 30,
+    task: 3,
     quiz: "Science quiz",
   },
   {
     subject: "History",
     subjectId: 2395098680238,
-    chart: [
-      ["Task", "History"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 50,
+    task: 1,
     quiz: "History quiz",
   },
   {
     subject: "Computer Science",
     subjectId: 235308680238,
-    chart: [
-      ["Task", "Computer Science"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 10,
+    task: 1,
     quiz: "Math quiz",
   },
   {
     subject: "English",
     subjectId: 2230940238,
-    chart: [
-      ["Task", "Math"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 70,
+    task: 1,
     quiz: "Math quiz",
   },
   {
     subject: "Social Studies",
     subjectId: 2390208488,
-    chart: [
-      ["Task", "Math"],
-      ["homework", 10],
-      ["quiz", 20],
-      ["test", 70],
-    ],
+    progress: 10,
+    task: 1,
     quiz: "Math quiz",
   },
 ];
@@ -92,7 +68,7 @@ export default function Function() {
 
   return (
     <div className="dashboard-container">
-      <div className="top-part d-flex justify-content-start  mb-4">
+      <div className="top-part d-flex justify-content-start mb-5">
         <button
           className={tab === "dashboard" ? "tab-button-click" : "tab-button"}
           onClick={() => {

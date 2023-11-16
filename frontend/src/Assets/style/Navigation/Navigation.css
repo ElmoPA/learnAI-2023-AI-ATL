@@ -1,3 +1,9 @@
+/* .navigation-container {
+  .blurred-background {
+    backdrop-filter: blur(10px);
+  }
+} */
+
 .login-button {
   /* Brilliant-style login button */
   color: #1d1d1f;

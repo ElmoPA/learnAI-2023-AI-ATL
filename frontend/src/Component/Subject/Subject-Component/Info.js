@@ -15,27 +15,47 @@ export default function Info({ events }) {
         {isLargeScreen && (
           <div className="col-4 d-flex justify-content-center">
             <div className="today-container col-11 d-flex flex-column">
-              <h2 className="mb-3">Today</h2>
-              <div className="quiz-container mb-5">
-                <h5>Quiz</h5>
-                {/*map list of the quiz */}
-                <li>Algebra</li>
-                <li>Geometry</li>
+              <h2 className="mb-5">Today</h2>
+              <div>
+                <div className="quiz-container mb-5">
+                  <h4>Quiz</h4>
+                  <div className="quiz-set-container">
+                    {/*map list of the quiz */}
+                    <div className="each-quiz m-2">
+                      <a className="link" href="/quiz/238">
+                        Algebra
+                      </a>
+                    </div>
+                    <div className="each-quiz m-2">
+                      <a className="link" href="/quiz/2934">
+                        Geometry
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flashcard-container">
                 <h4 className="mb-3">Flash Card</h4>
                 <div className="flashcard-set-container">
-                  <div className="each-flashcard m-2">
-                    <h5>Math</h5>
+                  <div className=" m-2  each-flashcard ">
+                    <a href="/flashcard/math" className="link">
+                      Math
+                    </a>
                   </div>
-                  <div className="each-flashcard m-2">
-                    <h5>Computer Science</h5>
+                  <div className=" m-2  each-flashcard ">
+                    <a href="/flashcard/math" className="link">
+                      Computer Science
+                    </a>
                   </div>
-                  <div className="each-flashcard m-2">
-                    <h5>Social Studies</h5>
+                  <div className=" each-flashcard m-2">
+                    <a href="/flashcard/math" className="link">
+                      Social Studies
+                    </a>
                   </div>
-                  <div className="each-flashcard m-2">
-                    <h5>Physics</h5>
+                  <div className=" m-2  each-flashcard ">
+                    <a href="/flashcard/math" className="link">
+                      Physics
+                    </a>
                   </div>
                 </div>
               </div>
