@@ -19,11 +19,13 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { token: null });
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.getItem("token"));
-    if (token) {
-      dispatch({ type: "LOGIN", payload: token });
+    const tokenData = localStorage.getItem("token");
+    if (tokenData) {
+      const { token } = JSON.parse(tokenData);
+      if (token) {
+        dispatch({ type: "LOGIN", payload: token });
+      }
     }
-    console.log(token);
   }, []);
   console.log(state);
   return (
