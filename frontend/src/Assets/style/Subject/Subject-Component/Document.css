@@ -8,6 +8,14 @@
 
     padding-inline: 3rem;
   }
+  .lecture-document-container {
+    border-top: solid 2px #eeeeee;
+
+    padding-inline: 3rem;
+  }
+  .syllabus-document-container {
+    padding-inline: 3rem;
+  }
 }
 
 .trash_button {
@@ -51,22 +59,22 @@
   background-color: #f5f5f5;
 }
 
-.quiz-items-container {
+.document-items-container {
   height: 25vh;
   overflow-y: scroll;
   width: 100%;
 }
 
-.quiz-items-container::-webkit-scrollbar {
+.document-items-container::-webkit-scrollbar {
   width: 5px;
 }
 
-.quiz-items-container::-webkit-scrollbar-thumb {
+.document-items-container::-webkit-scrollbar-thumb {
   background-color: #cccccc;
   border-radius: 10px;
 }
 
-.quiz-items-container::-webkit-scrollbar-track {
+.document-items-container::-webkit-scrollbar-track {
   background-color: #f5f5f5;
 }
 
@@ -77,4 +85,8 @@
   text-decoration: none;
   color: #1d1d1f;
   margin-bottom: 10px;
+}
+
+.remove-icon {
+  color: #888888;
 }

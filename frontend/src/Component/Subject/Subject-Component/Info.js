@@ -31,7 +31,7 @@ export default function Info({ events }) {
               <h2 className="mb-5">Today</h2>
               <div>
                 <div className="quiz-container mb-5">
-                  <h4>Quiz</h4>
+                  <h4 className="mb-3">Quiz</h4>
                   <div className="quiz-set-container d-flex flex-column">
                     {/*map list of the quiz */}
                     {quiz_list.map((quiz, index) => (
