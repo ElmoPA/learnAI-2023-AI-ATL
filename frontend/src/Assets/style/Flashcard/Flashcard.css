@@ -47,7 +47,7 @@
 }
 
 .button-inside-container {
-  width: 10rem;
+  width: 25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,4 +84,22 @@
 
 .back {
   transform: rotateY(180deg);
+}
+
+.know_button {
+  color: #1d1d1f;
+  padding-top: 5px;
+  padding-bottom: 5px; /* Adjust padding as needed */
+  width: 6.75rem;
+  font-size: 16px; /* Adjust font size as needed */
+  border: solid #1d1d1f 2px; /* Remove button border */
+  border-radius: 5px; /* Add button border radius for rounded corners */
+  cursor: pointer;
+  transition: box-shadow 0.3s; /* Add a smooth transition effect */
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.know_button:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }

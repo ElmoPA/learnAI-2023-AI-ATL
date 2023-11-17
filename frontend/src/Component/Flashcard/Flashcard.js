@@ -157,6 +157,10 @@ export default function Flashcard() {
     }
   };
 
+  const setKnow = (index, setKnow) => {
+    // set know and don't by index
+  };
+
   return (
     <div className="flash-card-page-container">
       <div className="all-items-container">
@@ -172,14 +176,33 @@ export default function Flashcard() {
 
         <div className="button-container d-flex justify-content-center">
           <div className="button-inside-container">
-            <button className="arrow_button mr-2" onClick={goToPreviousCard}>
+            <button
+              onClick={() => {
+                setKnow(currentIndex, "!know");
+              }}
+              className="know_button"
+            >
+              Don't know
+            </button>
+            <button
+              className="arrow_button ml-3 mr-2"
+              onClick={goToPreviousCard}
+            >
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <p className="mt-3 mx-2">
               {currentIndex + 1} / {flashcards.length}
             </p>
-            <button className="arrow_button ml-2" onClick={goToNextCard}>
+            <button className="arrow_button ml-2 mr-3 " onClick={goToNextCard}>
               <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+            <button
+              className="know_button"
+              onClick={() => {
+                setKnow(currentIndex, "know");
+              }}
+            >
+              Know
             </button>
           </div>
         </div>
