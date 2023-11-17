@@ -1,0 +1,17 @@
+.flash-card-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.flash-card-container {
+  width: 45%;
+  height: 50vh;
+  background-color: #ebedef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
