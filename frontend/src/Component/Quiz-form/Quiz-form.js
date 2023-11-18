@@ -1,61 +1,84 @@
 import "../../Assets/style/Quiz-form/Quiz.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // json structure
 
-export const quiz = {
-  title: "Math quiz",
-  questions: [
-    {
-      question: "Question 1",
-      type: "choice",
-      answers: ["option 1", "option 2", "option 3", "option 4"],
-    },
-    {
-      question: "Question 2",
-      type: "choice",
-      answers: ["option 1", "option 2", "option 3", "option 4"],
-    },
-    {
-      question: "Question 3",
-      type: "text",
-    },
-  ],
-};
+// export const quiz = {
+//   title: "Math quiz",
+//   questions: [
+//     {
+//       question: "Question 1",
+//       type: "choice",
+//       answers: ["option 1", "option 2", "option 3", "option 4"],
+//     },
+//     {
+//       question: "Question 2",
+//       type: "choice",
+//       answers: ["option 1", "option 2", "option 3", "option 4"],
+//     },
+//     {
+//       question: "Question 3",
+//       type: "text",
+//     },
+//   ],
+// };
 
 export default function Quiz() {
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [quiz, setQuiz] = useState([]);
 
+  // change the answer
   const handleOptionChange = (questionIndex, answer) => {
-    setSelectedOptions({
+    setSelectedOptions([
       ...selectedOptions,
-      [questionIndex]: answer,
-    });
+      { id: questionIndex, answer: answer },
+    ]);
   };
+  useEffect(() => {
+    // fetch quiz
+    const getQuiz = async () => {
+      const response = await fetch("/quiz/display?userId=${}&subj=${}");
+      const json = await response.json();
+      if (response.ok) {
+        setQuiz(json.question);
+      }
+      if (!response.ok) {
+        console.log(json.error);
+      }
+    };
+    getQuiz();
+  });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // submit all the answers
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log("Selected option:", selectedOptions);
-    // Handle the submission (e.g., send to server)
+    const response = await fetch("quiz/submitQuiz", {
+      method: "POST",
+      body: JSON.stringify({ answer: selectedOptions }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+    }
   };
   return (
     <div className="quiz-form-container">
       <div className="title-part-container">
         <h1>
           {/**put the quiz title over here */}
-          {quiz.title}
+          {/* {quiz.title} */}
         </h1>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="question-section">
           {/**map all the questions over here */}
-          {quiz.questions.map((q, qIndex) => {
-            if (q.type === "choice") {
+          {quiz.map((q, qIndex) => {
+            if (q.type === "multiple_choice") {
               return (
                 <div className="each-question mb-3" key={qIndex}>
                   <h4 className="question-text mb-3">{q.question}</h4>
-                  {q.answers.map((answer, aIndex) => (
+                  {q.options.map((answer, aIndex) => (
                     <div key={aIndex}>
                       <label className="radio-label">
                         <input
@@ -74,7 +97,7 @@ export default function Quiz() {
                 </div>
               );
             }
-            if (q.type === "text") {
+            if (q.type === "open_ended") {
               return (
                 <div className="each-question mb-4" key={qIndex}>
                   <h4 className="question-text mb-3">{q.question}</h4>
