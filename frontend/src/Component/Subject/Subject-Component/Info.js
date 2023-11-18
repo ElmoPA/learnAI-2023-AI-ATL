@@ -46,7 +46,7 @@ export default function Info({ events }) {
               <div>
                 <div className="quiz-container mb-4">
                   <h4 className="mb-3">Quiz</h4>
-                  <a className="recently-subject-link" href="/quiz/280384308">
+                  <a className="recently-subject-link" href="/quiz/280384308"> {/*the link oer her*/}
                     <div className="card d-flex flex-column p-4 rounded-4">
                       <div>
                         <h4>{upcoming_quiz.name}</h4>
