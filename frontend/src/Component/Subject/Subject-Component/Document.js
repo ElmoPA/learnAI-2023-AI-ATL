@@ -28,7 +28,7 @@ export default function Document() {
             <div className="col-11">
               <form className="d-flex flex-column" onSubmit={syllabusSubmit}>
                 <input className="form-control mb-3" type="file" />
-                <button className="upload-submit-button col-12">Submit</button>
+                <button className="upload-submit-button col-12">Upload</button>
               </form>
             </div>
             <div className="col-1">
@@ -64,7 +64,7 @@ export default function Document() {
             <div className="col-11">
               <form className="d-flex flex-column" onSubmit={quizSubmit}>
                 <input className="form-control mb-3" type="file" />
-                <button className="upload-submit-button col-12">Submit</button>
+                <button className="upload-submit-button col-12">Upload</button>
               </form>
             </div>
             <div className="col-1">
@@ -89,7 +89,7 @@ export default function Document() {
             <div className="col-11">
               <form className=" d-flex flex-column" onSubmit={lectureSubmit}>
                 <input className="form-control mb-3" type="file" />
-                <button className="upload-submit-button col-12">Submit</button>
+                <button className="upload-submit-button col-12">Upload</button>
               </form>
             </div>
             <div className="col-1">
