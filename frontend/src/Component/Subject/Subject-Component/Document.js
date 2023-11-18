@@ -38,7 +38,7 @@ export default function Document() {
     <div className="document-page-container">
       <div>
         <div className="syllabus-document-container  d-flex align-items-center justify-content-between flex-column mt-5">
-          <div className="syllabus-title mb-3 mt-5">
+          <div className="syllabus-title mb-3 mt-2">
             <h2 className="mb-2">Syllabus</h2>
           </div>
           <div className="document-items-container mb-4 p-3">

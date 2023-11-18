@@ -31,7 +31,7 @@ function CircularProgressWithLabel(props) {
   );
 }
 
-const upcoming_quiz = { name: "Math", time: "tomorrow", progress: 80 };
+const upcoming_quiz = { name: "Algebra", time: "Tomorrow", progress: 80 };
 
 export default function Info({ events }) {
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1065px)" });
@@ -42,11 +42,12 @@ export default function Info({ events }) {
         {isLargeScreen && (
           <div className="col-4 d-flex justify-content-center">
             <div className="today-container col-11 d-flex flex-column">
-              <h2 className="mb-4">Upcoming Events</h2>
               <div>
-                <div className="quiz-container mb-4">
-                  <h4 className="mb-3">Quiz</h4>
-                  <a className="recently-subject-link" href="/quiz/280384308"> {/*the link oer her*/}
+                <div className="quiz-container mb-5">
+                  <h4 className="mb-3">Upcoming Quiz</h4>
+                  <a className="recently-subject-link" href="/quiz/280384308">
+                    {" "}
+                    {/*the link oer her*/}
                     <div className="card d-flex flex-column p-4 rounded-4">
                       <div>
                         <h4>{upcoming_quiz.name}</h4>
@@ -67,16 +68,14 @@ export default function Info({ events }) {
               </div>
               <div className="flashcard-container">
                 <h4 className="mb-3">Flash Card</h4>
-                <div className="flashcard-set-container d-flex flex-column">
-                  {/* {flash_card.map((card, index) => (
-                    <a
-                      key={index}
-                      href={card.link}
-                      className="each-flashcard mx-2 my-1"
-                    >
-                      {card.topic}
-                    </a>
-                  ))} */}
+                <div className="flashcard-set-container">
+                  <a
+                    href="/flashcard/23408203948" // card.id after flashcard
+                    className=" each-flashcard"
+                  >
+                    <h5>Math {/**card topic */}</h5>
+                    <p>10 cards</p>
+                  </a>
                 </div>
               </div>
             </div>

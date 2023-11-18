@@ -10,7 +10,7 @@ import {
 import CalendarSubject from "./Subject-Component/CalendarSubject";
 import { useMediaQuery } from "react-responsive";
 import Info from "./Subject-Component/Info";
-import Statistics from "./Subject-Component/Statistics";
+import AllQuiz from "./Subject-Component/AllQuiz";
 import Document from "./Subject-Component/Document";
 
 const events = [
@@ -49,7 +49,7 @@ export default function Subject() {
             icon={faChartColumn}
             className="icon"
           ></FontAwesomeIcon>
-          Statistics
+          Quiz
         </button>
         <button
           className={tab === "documents" ? "tab-button-click" : "tab-button"}
@@ -80,7 +80,7 @@ export default function Subject() {
       </div>
       <div>
         {tab === "subject" && <Info events={events} />}
-        {tab === "statistics" && <Statistics />}
+        {tab === "statistics" && <AllQuiz />}
         {tab === "documents" && <Document />}
         {isSmallScreen && tab === "calendar" && (
           <CalendarSubject events={events} />
