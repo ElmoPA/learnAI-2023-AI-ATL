@@ -8,27 +8,363 @@ import moment from "moment";
 import { CustomToolbar } from "./CustomToolbar";
 const localizer = momentLocalizer(moment);
 
-const events = [
+const calendarEvents = [
   {
-    title: "Meeting with Team",
-    start: new Date(2023, 11, 14, 10, 0), // Year, Month (0-based), Day, Hours, Minutes
-    end: new Date(2023, 3, 20, 12, 0),
-    allDay: false,
-  },
-  {
-    title: "Lunch with Client",
-    start: new Date(2023, 3, 21, 13, 0),
-    end: new Date(2023, 3, 21, 14, 0),
-    allDay: false,
-  },
-  {
-    title: "Conference",
-    start: new Date(2023, 3, 25),
-    end: new Date(2023, 3, 28),
+    title: "Consequences of the War 30 minutes",
+    start: "2023-11-18",
+    end: "2023-11-18",
     allDay: true,
   },
-  // ... more events
+  {
+    title: "Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-18",
+    end: "2023-11-18",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-18",
+    end: "2023-11-18",
+    allDay: true,
+  },
+  {
+    title: "Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-18",
+    end: "2023-11-18",
+    allDay: true,
+  },
+  {
+    title: "Consequences of the War 30 minutes",
+    start: "2023-11-19",
+    end: "2023-11-19",
+    allDay: true,
+  },
+  {
+    title: "Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-19",
+    end: "2023-11-19",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-19",
+    end: "2023-11-19",
+    allDay: true,
+  },
+  {
+    title: "Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-19",
+    end: "2023-11-19",
+    allDay: true,
+  },
+  {
+    title: "Consequences of the War 30 minutes",
+    start: "2023-11-20",
+    end: "2023-11-20",
+    allDay: true,
+  },
+  {
+    title: "Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-20",
+    end: "2023-11-20",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-20",
+    end: "2023-11-20",
+    allDay: true,
+  },
+  {
+    title: "Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-20",
+    end: "2023-11-20",
+    allDay: true,
+  },
+  {
+    title: "Consequences of the War 30 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-21",
+    end: "2023-11-21",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Review - Consequences of the War 30 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Consequences of the War 15 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Consequences of the War 15 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-22",
+    end: "2023-11-22",
+    allDay: true,
+  },
+  {
+    title: "Causes of the War 30 minutes",
+    start: "2023-11-23",
+    end: "2023-11-23",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-23",
+    end: "2023-11-23",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-23",
+    end: "2023-11-23",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-23",
+    end: "2023-11-23",
+    allDay: true,
+  },
+  {
+    title: "Review - Consequences of the War 30 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Consequences of the War 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Consequences of the War 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Review - Causes of the War 30 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Causes of the War 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Causes of the War 15 minutes",
+    start: "2023-11-24",
+    end: "2023-11-24",
+    allDay: true,
+  },
+  {
+    title: "Review - Causes of the War 30 minutes",
+    start: "2023-11-26",
+    end: "2023-11-26",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Causes of the War 15 minutes",
+    start: "2023-11-26",
+    end: "2023-11-26",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Causes of the War 15 minutes",
+    start: "2023-11-26",
+    end: "2023-11-26",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Figures - Abraham Lincoln 30 minutes",
+    start: "2023-11-27",
+    end: "2023-11-27",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-27",
+    end: "2023-11-27",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Figures - Abraham Lincoln 15 minutes",
+    start: "2023-11-27",
+    end: "2023-11-27",
+    allDay: true,
+  },
+  {
+    title: "Review - Consequences of the War 30 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Consequences of the War 15 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Consequences of the War 15 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Review - Major Events - Battle of Gettysburg 30 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Major Events - Battle of Gettysburg 15 minutes",
+    start: "2023-11-28",
+    end: "2023-11-28",
+    allDay: true,
+  },
+  {
+    title: "Review - Causes of the War 30 minutes",
+    start: "2023-11-30",
+    end: "2023-11-30",
+    allDay: true,
+  },
+  {
+    title: "Flashcards - Causes of the War 15 minutes",
+    start: "2023-11-30",
+    end: "2023-11-30",
+    allDay: true,
+  },
+  {
+    title: "Quiz - Causes of the War 15 minutes",
+    start: "2023-11-30",
+    end: "2023-11-30",
+    allDay: true,
+  },
 ];
+
+const transformEvents = (events) => {
+  return events.map((event) => ({
+    ...event,
+    start: new Date(event.start),
+    end: new Date(event.end),
+  }));
+};
+
+const CustomDayView = ({ date, events }) => {
+  // Filter events for the selected date
+  const dayStart = moment(date).startOf("day");
+  const dayEnd = moment(date).endOf("day");
+
+  const dayEvents = events.filter((event) => {
+    const start = moment(event.start);
+    const end = moment(event.end);
+    return start.isSameOrAfter(dayStart) && end.isSameOrBefore(dayEnd);
+  });
+
+  return (
+    <div>
+      {dayEvents.length > 0 ? (
+        dayEvents.map((event, idx) => (
+          <div key={idx} className="custom-day-event">
+            <strong>{event.title}</strong>
+            {/* Add more details here if needed */}
+          </div>
+        ))
+      ) : (
+        <div>No events</div>
+      )}
+    </div>
+  );
+};
+
+const transformedCalendarEvents = transformEvents(calendarEvents);
 
 export default function _Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -56,7 +392,7 @@ export default function _Calendar() {
           <div className="rigth component col-lg-9">
             <BigCalendar
               localizer={localizer}
-              events={events}
+              events={transformedCalendarEvents}
               startAccessor="start"
               endAccessor="end"
               components={{
@@ -66,6 +402,12 @@ export default function _Calendar() {
               date={selectedDate}
               defaultDate={selectedDate}
               onNavigate={handleNavigate}
+              views={{
+                month: true,
+                week: true,
+                day: CustomDayView,
+                agenda: true,
+              }}
             />
           </div>
         </div>
@@ -75,7 +417,7 @@ export default function _Calendar() {
           <div className="rigth component col-12">
             <BigCalendar
               localizer={localizer}
-              events={events}
+              events={calendarEvents}
               startAccessor="start"
               endAccessor="end"
               components={{
