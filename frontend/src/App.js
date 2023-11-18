@@ -6,6 +6,7 @@ import Login from "./Component/Login/Login";
 import Subject from "./Component/Subject/Subject";
 import Quiz from "./Component/Quiz-form/Quiz-form";
 import Flashcard from "./Component/Flashcard/Flashcard";
+
 export default function App() {
   return (
     <div className="App">

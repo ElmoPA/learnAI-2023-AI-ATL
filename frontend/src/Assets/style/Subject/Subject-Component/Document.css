@@ -90,3 +90,29 @@
 .remove-icon {
   color: #888888;
 }
+
+.test-date-input {
+  border-radius: 5px;
+  padding: 7px 12px;
+  border: solid 1px #ccccbb;
+  margin-left: 1rem;
+}
+.test-date-input:hover {
+  border: solid 1px #1d1d1f;
+}
+
+.test-date-submit {
+  border-radius: 5px;
+  padding: 7px 10px;
+  background-color: transparent;
+  border: solid 1px #ccccbb;
+  color: #555555;
+}
+
+.test-date-submit:hover {
+  border: solid 1px #1d1d1f;
+}
+
+.test-date-form {
+  gap: 8px;
+}

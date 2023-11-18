@@ -1,6 +1,11 @@
 import "../../../Assets/style/Subject/Subject-Component/Document.css";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faRemove } from "@fortawesome/free-solid-svg-icons";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { TextField } from "@mui/material";
 
 export const quiz_list = [
   { subject: "Algebra" },
@@ -10,9 +15,25 @@ export const quiz_list = [
 ];
 
 export default function Document() {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const handleDateChange = (newValue) => {
+    setSelectedDate(newValue);
+  };
+  const [topic, setTopic] = useState("");
+
+  const handleTopicChange = (event) => {
+    setTopic(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Submitted Date:", selectedDate);
+    console.log("Submitted Topic:", topic);
+  };
   const syllabusSubmit = () => {};
   const quizSubmit = () => {};
   const lectureSubmit = () => {};
+
   return (
     <div className="document-page-container">
       <div>
@@ -60,7 +81,7 @@ export default function Document() {
             ))}
           </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-11">
               <form className="d-flex flex-column" onSubmit={quizSubmit}>
                 <input className="form-control mb-3" type="file" />
@@ -73,6 +94,33 @@ export default function Document() {
               </button>
             </div>
           </div>
+        </div>
+        <div>
+          <h2 className="d-flex justify-content-center mb-4">Test Date</h2>
+          <form
+            className="test-date-form d-flex align-items-center justify-content-center"
+            onSubmit={handleSubmit}
+          >
+            <div>
+              <input
+                className="test-date-input"
+                type="text"
+                placeholder="Topic"
+                value={topic}
+                onChange={handleTopicChange}
+              />
+            </div>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Select Date"
+                value={selectedDate}
+                onChange={handleDateChange}
+                renderInput={(params) => <TextField {...params} />}
+                slotProps={{ textField: { size: "small" } }}
+              />
+            </LocalizationProvider>
+            <button className="test-date-submit">Submit</button>
+          </form>
         </div>
       </div>
       <div>

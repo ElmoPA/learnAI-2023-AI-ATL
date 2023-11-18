@@ -402,12 +402,6 @@ export default function _Calendar() {
               date={selectedDate}
               defaultDate={selectedDate}
               onNavigate={handleNavigate}
-              views={{
-                month: true,
-                week: true,
-                day: CustomDayView,
-                agenda: true,
-              }}
             />
           </div>
         </div>
