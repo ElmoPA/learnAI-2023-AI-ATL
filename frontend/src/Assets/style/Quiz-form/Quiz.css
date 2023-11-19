@@ -71,3 +71,11 @@
 .form-scroll::-webkit-scrollbar-track {
   background-color: #f5f5f5;
 }
+
+.border-right {
+  border: solid 1px #3bb143 !important;
+}
+
+.border-wrong {
+  border: solid 1px #d30000 !important;
+}
