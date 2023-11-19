@@ -156,7 +156,7 @@ export default function Flashcard() {
       );
       const json = await response.json();
       if (response.ok) {
-        const initialFlashcards = json.map((card) => ({
+        const initialFlashcards = json.flashcards.map((card) => ({
           ...card,
           knowCount: 0,
         }));

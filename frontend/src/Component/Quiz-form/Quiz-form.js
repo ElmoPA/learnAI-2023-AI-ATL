@@ -45,15 +45,16 @@ export default function Quiz() {
         `/quiz/display?userId=${userId}&subj=${subj}`
       );
       const json = await response.json();
+      console.log(json); 
       if (response.ok) {
-        setQuiz(json.question);
+        setQuiz(json.questions);
       }
       if (!response.ok) {
         console.log(json.error);
       }
     };
     getQuiz();
-  });
+  },[]);
 
   // submit all the answers
   const handleSubmit = async (e) => {
