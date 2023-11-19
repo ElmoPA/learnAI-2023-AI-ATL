@@ -1,0 +1,14 @@
+functions-framework==3.*
+numpy
+pandas
+langchain
+google-cloud-aiplatform
+torch
+transformers
+chromadb
+fuzzywuzzy
+google-cloud-storage
+PyPDF2
+Pillow
+pdf2image
+google-cloud-vision

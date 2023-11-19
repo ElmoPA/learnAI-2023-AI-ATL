@@ -42,12 +42,12 @@ export default function Info() {
   const [event, setEvent] = useState(null);
   const [error, setError] = useState(null);
   let location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("userId");
+  const subj = searchParams.get("subj");
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let searchParams = new URLSearchParams(location.search);
-        let userId = searchParams.get("userId");
-        let subj = searchParams.get("subj");
         const response = await fetch(
           `http://localhost:3030/dashboard/subject?userId=${userId}&subj=${subj}`
         );
@@ -74,7 +74,7 @@ export default function Info() {
       }
     };
     fetchData();
-  }, [location.search]);
+  }, [userId, subj]);
   return (
     <div className="subject-container">
       <div className="row">
@@ -86,7 +86,7 @@ export default function Info() {
                   <h4 className="mb-3">Upcoming Quiz</h4>
                   <a
                     className="recently-subject-link"
-                    href="/quiz?userId=user-1&subj=History"
+                    href={`/quiz?userId=${userId}&subj=${subj}`}
                   >
                     {" "}
                     {/*the link oer her*/}
@@ -112,11 +112,10 @@ export default function Info() {
                 <h4 className="mb-3">Flash Card</h4>
                 <div className="flashcard-set-container">
                   <a
-                    href="/flashcard?userId=user-1&subj=History" // card.id after flashcard
+                    href={`/flashcard?userId=${userId}&subj=${subj}`} // card.id after flashcard
                     className=" each-flashcard"
                   >
-                    <h5>Math {/**card topic */}</h5>
-                    <p>info</p>
+                    <h5>{info.Flashcards[0]}</h5>
                   </a>
                 </div>
               </div>
@@ -127,18 +126,27 @@ export default function Info() {
         {isSmallScreen && (
           <div className="col-12 d-flex justify-content-center">
             <div className="today-container col-11 d-flex flex-column">
-              <h2 className="mb-3">Today</h2>
               <div className="quiz-container mb-5">
-                <h5>Quiz</h5>
-                {/*map list of the quiz */}
-                <li>Algebra</li>
-                <li>Geometry</li>
+                <h4>Upcoming Quiz</h4>
+                <div>
+                  <h4>{info.Quiz[0]}</h4>
+                </div>
+                <div>
+                  <h6 className="mb-4">Time : {upcoming_quiz.time}</h6>
+                </div>
+                <div className="d-flex justify-content-center">
+                  <CircularProgressWithLabel
+                    value={upcoming_quiz.progress}
+                    size={150}
+                    thickness={10}
+                  />
+                </div>
               </div>
               <div className="flashcard-container">
                 <h4 className="mb-3">Flash Card</h4>
                 <div className="flashcard-set-container">
                   <div className="each-flashcard m-2">
-                    <h5>Math</h5>
+                    <h5>{info.Flashcards[0]}</h5>
                   </div>
                 </div>
               </div>

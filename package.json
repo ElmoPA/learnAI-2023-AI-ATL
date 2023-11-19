@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "child_process": "^1.0.2",
     "google-auth-library": "^9.2.0",
     "react-responsive": "^9.0.2"
   }
