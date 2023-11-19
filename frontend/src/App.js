@@ -17,8 +17,8 @@ export default function App() {
           <Route path="/function" element={<Function />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/subject" element={<Subject />}></Route>
-          <Route path="/quiz/:quizId" element={<Quiz />}></Route>
-          <Route path="/flashcard/:flashcardId" element={<Flashcard />}></Route>
+          <Route path="/quiz" element={<Quiz />}></Route>
+          <Route path="/flashcard" element={<Flashcard />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
