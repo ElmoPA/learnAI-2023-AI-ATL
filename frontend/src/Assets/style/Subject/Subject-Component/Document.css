@@ -1,0 +1,118 @@
+@media screen and (min-width: 1024px) {
+  .document-page-container {
+    padding-inline: 22.5rem;
+    padding-bottom: 3rem;
+  }
+  .quiz-document-container {
+    border-top: solid 2px #eeeeee;
+
+    padding-inline: 3rem;
+  }
+  .lecture-document-container {
+    border-top: solid 2px #eeeeee;
+
+    padding-inline: 3rem;
+  }
+  .syllabus-document-container {
+    padding-inline: 3rem;
+  }
+}
+
+.trash_button {
+  color: #1d1d1f;
+  padding: 7px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  background-color: #dde1e4;
+
+  text-decoration: none;
+}
+
+.upload-submit-button {
+  border-radius: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: transparent;
+  border: solid 1px #1d1d1f;
+  color: #1d1d1f;
+}
+
+.syllabus-items-container {
+  height: 25vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.syllabus-items-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.syllabus-items-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.syllabus-items-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.document-items-container {
+  height: 25vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.document-items-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.document-items-container::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.document-items-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+.each-quiz-container {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+  margin-bottom: 10px;
+}
+
+.remove-icon {
+  color: #888888;
+}
+
+.test-date-input {
+  border-radius: 5px;
+  padding: 7px 12px;
+  border: solid 1px #ccccbb;
+  margin-left: 1rem;
+}
+.test-date-input:hover {
+  border: solid 1px #1d1d1f;
+}
+
+.test-date-submit {
+  border-radius: 5px;
+  padding: 7px 10px;
+  background-color: transparent;
+  border: solid 1px #ccccbb;
+  color: #555555;
+}
+
+.test-date-submit:hover {
+  border: solid 1px #1d1d1f;
+}
+
+.test-date-form {
+  gap: 8px;
+}

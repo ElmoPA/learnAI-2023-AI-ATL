@@ -1,0 +1,122 @@
+.flash-card-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+@media only screen and (min-width: 1024px) {
+  .flash-card-container {
+    perspective: 1000px;
+    width: 35rem; /* Adjust size as needed */
+    height: 20rem; /* Adjust size as needed */
+    margin: 20px auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .flash-card-container {
+    perspective: 1000px;
+    width: 25rem; /* Adjust size as needed */
+    height: 17rem; /* Adjust size as needed */
+    margin: 20px auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .flash-card-container {
+    perspective: 1000px;
+    width: 15rem; /* Adjust size as needed */
+    height: 10rem; /* Adjust size as needed */
+    margin: 20px auto;
+  }
+}
+
+.arrow_button {
+  color: #1d1d1f;
+  padding: 7px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  background-color: #eeeeee;
+
+  text-decoration: none;
+}
+.arrow_button:hover {
+  opacity: 0.9;
+}
+
+.button-inside-container {
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flash-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip .flash-card-inner {
+  transform: rotateY(180deg);
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  background-color: white;
+  padding: 3rem;
+  cursor: pointer;
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  background-color: white;
+  padding: 3rem;
+  cursor: pointer;
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+.know_button {
+  color: #1d1d1f;
+  padding-top: 5px;
+  padding-bottom: 5px; /* Adjust padding as needed */
+  width: 6.75rem;
+  font-size: 16px; /* Adjust font size as needed */
+  border: solid #1d1d1f 2px; /* Remove button border */
+  border-radius: 5px; /* Add button border radius for rounded corners */
+  cursor: pointer;
+  transition: box-shadow 0.3s; /* Add a smooth transition effect */
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.know_button:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

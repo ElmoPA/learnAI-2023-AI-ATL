@@ -1,0 +1,85 @@
+@media screen and (min-width: 1024px) {
+  .login-container {
+    padding: 5rem 1rem;
+  }
+  .login-box {
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 3rem;
+  }
+  .vertical-line-subject {
+    background-color: #eeeeee;
+    width: 1px;
+    height: 70vh;
+  }
+}
+
+.login-input {
+  border-radius: 20px;
+  padding: 8px 1rem;
+  border: solid 1px hsl(0, 0%, 87%);
+}
+
+.login-input:focus {
+  border: none;
+}
+
+.each-flashcard {
+}
+
+.login-page-button {
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: solid 1px #1d1d1f;
+  color: #1d1d1f;
+}
+.google-login-button {
+  border-radius: 20px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: transparent;
+  border: solid 1px #1d1d1f;
+  color: #1d1d1f;
+}
+.login-page-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.google-login-button {
+  width: 100% !important;
+}
+
+.rbc-date-cell {
+  color: #1d1d1f;
+}
+.rbc-toolbar {
+  color: #1d1d1f;
+}
+.rbc-month-view {
+  border: none;
+}
+
+.rbc-calendar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.rbc-btn {
+  background-color: #1d1d1f;
+}
+
+.no-account {
+  font-size: 14px;
+}
+
+.login-text {
+  font-size: 14px;
+}

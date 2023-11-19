@@ -1,0 +1,2 @@
+- Start ./gcloud.sh -> starts proxy
+- Then run : npm start 

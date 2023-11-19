@@ -1,0 +1,77 @@
+.rbc-toolbar.calendar-theme {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.rbc-toolbari .rbc-btn-group button {
+  color: #5f6368;
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+  .vertical-line {
+    background-color: #eeeeee;
+    width: 1px;
+    height: 70vh;
+  }
+}
+
+.rbc-toolbar .rbc-btn-group button:hover {
+  background-color: #f1f1f1;
+}
+
+.rbc-toolbar .rbc-btn-group .active {
+  background-color: #e8e8e8;
+}
+
+.rbc-toolbar-label {
+  padding: 0 15px;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.each-quiz {
+  border: solid 1px #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+.each-flashcard {
+  border: solid 1px #cccddd;
+  display: flex;
+  padding-top: 1rem;
+  flex-direction: column;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1d1d1f;
+  width: 100%;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+li {
+  list-style: none;
+}
+
+.today-container {
+  padding: 0rem 2rem;
+}
+
+.recently-subject-link {
+  text-decoration: none;
+}

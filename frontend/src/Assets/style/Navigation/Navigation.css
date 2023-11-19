@@ -1,0 +1,23 @@
+/* .navigation-container {
+  .blurred-background {
+    backdrop-filter: blur(10px);
+  }
+} */
+
+.login-button {
+  /* Brilliant-style login button */
+  color: #1d1d1f;
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  border: solid #1d1d1f 2px; /* Remove button border */
+  border-radius: 5px; /* Add button border radius for rounded corners */
+  cursor: pointer;
+  transition: box-shadow 0.3s; /* Add a smooth transition effect */
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; /* Darker green on hover */
+}
