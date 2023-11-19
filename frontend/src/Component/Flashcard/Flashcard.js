@@ -152,7 +152,7 @@ export default function Flashcard() {
       let userId = searchParams.get("userId");
       let subj = searchParams.get("subj");
       const response = await fetch(
-        `flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
+        `http://localhost:3030/flashcard/display/` // userId, and subj
       );
       const json = await response.json();
       console.log(json); 
