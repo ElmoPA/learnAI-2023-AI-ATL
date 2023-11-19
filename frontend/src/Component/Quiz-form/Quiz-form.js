@@ -2,31 +2,12 @@ import "../../Assets/style/Quiz-form/Quiz.css";
 
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-// json structure
-
-// export const quiz = {
-//   title: "Math quiz",
-//   questions: [
-//     {
-//       question: "Question 1",
-//       type: "choice",
-//       answers: ["option 1", "option 2", "option 3", "option 4"],
-//     },
-//     {
-//       question: "Question 2",
-//       type: "choice",
-//       answers: ["option 1", "option 2", "option 3", "option 4"],
-//     },
-//     {
-//       question: "Question 3",
-//       type: "text",
-//     },
-//   ],
-// };
 
 export default function Quiz() {
   const [selectedOptions, setSelectedOptions] = useState({});
   const [quiz, setQuiz] = useState(null);
+  const [answer, setAnswer] = useState(null);
+  const [isSummited, setIsSummited] = useState(false);
   let location = useLocation();
   // change the answer
   const handleOptionChange = (questionIndex, answer) => {
@@ -45,6 +26,7 @@ export default function Quiz() {
         `http://localhost:3030/quiz/display?userId=${userId}&subj=${subj}`
       );
       const json = await response.json();
+      console.log(json);
       if (response.ok) {
         setQuiz(json.questions);
       }
@@ -59,30 +41,47 @@ export default function Quiz() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Selected option:", selectedOptions);
-    const response = await fetch("/quiz/submitQuiz", {
+    const response = await fetch("http://localhost:3030/quiz/submitQuiz", {
       method: "POST",
       body: JSON.stringify({ answer: selectedOptions }),
       headers: { "Content-Type": "application/json" },
     });
+    const json = await response.json();
     if (response.ok) {
+      setAnswer(json.questions);
+      setIsSummited(true);
     }
   };
   return (
     <div className="quiz-form-container">
       {quiz && (
         <div>
-          <div className="title-part-container">
+          {/* <div className="title-part-container">
             <h1>
-              {/**put the quiz title over here */}
-              {/* {quiz.title} */}
+              
             </h1>
-          </div>
+          </div> */}
           <form onSubmit={handleSubmit}>
             <div className="question-section">
               {quiz.map((q, qIndex) => {
+                let borderColor = "";
+                let each_answer = "";
+                if (isSummited && answer && answer[qIndex]) {
+                  borderColor = answer[qIndex].correct
+                    ? "border-right"
+                    : "border-wrong";
+                  if (answer[qIndex].correct) {
+                    each_answer = "You got it!";
+                  } else {
+                    each_answer = `The answer is ${answer[qIndex].correct_answer}`;
+                  }
+                }
                 if (q.type === "multiple_choice") {
                   return (
-                    <div className="each-question mb-3" key={qIndex}>
+                    <div
+                      className={`each-question mb-3 ${borderColor}`}
+                      key={qIndex}
+                    >
                       <h4 className="question-text mb-3">{q.question}</h4>
                       {q.options.map((answer, aIndex) => (
                         <div key={aIndex}>
@@ -102,12 +101,29 @@ export default function Quiz() {
                           <br />
                         </div>
                       ))}
+                      <div>{each_answer}</div>
                     </div>
                   );
                 }
                 if (q.type === "open_ended") {
+                  let borderColor = "";
+                  let each_answer = "";
+                  if (isSummited && answer && answer[qIndex]) {
+                    borderColor = answer[qIndex].correct
+                      ? "border-right"
+                      : "border-wrong";
+                    if (answer[qIndex].correct) {
+                      each_answer = "You got it!";
+                    } else {
+                      each_answer = `The answer is ${answer[qIndex].correct_answer}`;
+                    }
+                  }
+
                   return (
-                    <div className="each-question mb-4" key={qIndex}>
+                    <div
+                      className={`each-question mb-4 ${borderColor}`}
+                      key={qIndex}
+                    >
                       <h4 className="question-text mb-3">{q.question}</h4>
 
                       <textarea
@@ -118,12 +134,28 @@ export default function Quiz() {
                           handleOptionChange(qIndex, e.target.value)
                         }
                       ></textarea>
+                      <div>{each_answer}</div>
                     </div>
                   );
                 }
                 if (q.type === "true_false") {
+                  let borderColor = "";
+                  let each_answer = "";
+                  if (isSummited && answer && answer[qIndex]) {
+                    borderColor = answer[qIndex].correct
+                      ? "border-right"
+                      : "border-wrong";
+                    if (answer[qIndex].correct) {
+                      each_answer = "You got it!";
+                    } else {
+                      each_answer = `The answer is ${answer[qIndex].correct_answer}`;
+                    }
+                  }
                   return (
-                    <div className="each-question mb-4" key={qIndex}>
+                    <div
+                      className={`each-question mb-4 ${borderColor}`}
+                      key={qIndex}
+                    >
                       <h4 className="question-text mb-3">{q.question}</h4>
                       <label className="radio-label">
                         <input
@@ -147,6 +179,7 @@ export default function Quiz() {
                         />
                         False
                       </label>
+                      <div>{each_answer}</div>
                     </div>
                   );
                 }
