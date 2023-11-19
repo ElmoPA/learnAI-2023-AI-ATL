@@ -58,7 +58,7 @@ export default function Document() {
       formData.append("userId" /*userID from Auth context*/);
       formData.append("subj" /*get from the query*/);
       formData.append("file", quizFile); // use middleware to receive file
-      const response = await fetch("/upload/fileBasic", {
+      const response = await fetch("http://localhost:3030/upload/fileBasic", {
         method: "POST",
         body: formData,
       });
@@ -74,7 +74,7 @@ export default function Document() {
       formData.append("userId" /*userID from Auth context*/);
       formData.append("subj" /*get from the query*/);
       formData.append("file", lectureFile); // use middleware to receive file
-      const response = await fetch("/upload/fileSlides", {
+      const response = await fetch("http://localhost:3030/upload/fileSlides", {
         method: "POST",
         body: formData,
       });

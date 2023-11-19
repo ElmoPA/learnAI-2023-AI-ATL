@@ -152,11 +152,11 @@ export default function Flashcard() {
       let userId = searchParams.get("userId");
       let subj = searchParams.get("subj");
       const response = await fetch(
-        `/flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
+        `http://localhost:3030/flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
       );
       const json = await response.json();
       if (response.ok) {
-        const initialFlashcards = json.map((card) => ({
+        const initialFlashcards = json.flashcards.map((card) => ({
           ...card,
           knowCount: 0,
         }));
@@ -189,7 +189,7 @@ export default function Flashcard() {
         newList.push(currentCard); // Add to the end
         newList.splice(currentCard, 1); // Remove from current position
       }
-      if (newList.length == 0) {
+      if (newList.length === 0) {
         setCongrat(true);
       }
 
