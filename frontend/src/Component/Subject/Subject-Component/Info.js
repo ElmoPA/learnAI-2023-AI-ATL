@@ -73,7 +73,10 @@ export default function Info({ events }) {
               <div>
                 <div className="quiz-container mb-5">
                   <h4 className="mb-3">Upcoming Quiz</h4>
-                  <a className="recently-subject-link" href="/quiz/280384308">
+                  <a
+                    className="recently-subject-link"
+                    href="/quiz/display?userId=user-1&subj=History"
+                  >
                     {" "}
                     {/*the link oer her*/}
                     <div className="card d-flex flex-column p-4 rounded-4">
@@ -98,7 +101,7 @@ export default function Info({ events }) {
                 <h4 className="mb-3">Flash Card</h4>
                 <div className="flashcard-set-container">
                   <a
-                    href="/flashcard/23408203948" // card.id after flashcard
+                    href="/flashcard/display?userId=user-1&subj=History" // card.id after flashcard
                     className=" each-flashcard"
                   >
                     <h5>Math {/**card topic */}</h5>
