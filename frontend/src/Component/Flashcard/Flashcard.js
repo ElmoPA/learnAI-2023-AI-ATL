@@ -152,9 +152,10 @@ export default function Flashcard() {
       let userId = searchParams.get("userId");
       let subj = searchParams.get("subj");
       const response = await fetch(
-        `/flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
+        `flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
       );
       const json = await response.json();
+      console.log(json); 
       if (response.ok) {
         const initialFlashcards = json.flashcards.map((card) => ({
           ...card,
