@@ -2,7 +2,7 @@ import "../../Assets/style/Flashcard/Flashcard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-
+import { useLocation } from "react-router-dom";
 // const flashcards = [
 //   {
 //     front: "Abraham Lincoln",
@@ -144,11 +144,15 @@ export default function Flashcard() {
   const [cardList, setCardList] = useState(null);
   const [congrat, setCongrat] = useState(false);
   const [attempt, setAttempt] = useState(1);
+  let location = useLocation();
   // fetch data (get method)
   useEffect(() => {
     const getFlashcard = async () => {
+      let searchParams = new URLSearchParams(location.search);
+      let userId = searchParams.get("userId");
+      let subj = searchParams.get("subj");
       const response = await fetch(
-        "/flashcard/display?userId=${}&subj=${}" // userId, and subj
+        `/flashcard/display?userId=${userId}&subj=${subj}` // userId, and subj
       );
       const json = await response.json();
       if (response.ok) {
