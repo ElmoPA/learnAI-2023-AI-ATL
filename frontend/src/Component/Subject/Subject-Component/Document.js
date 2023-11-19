@@ -7,13 +7,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TextField } from "@mui/material";
 
-export const quiz_list = [
-  { subject: "Algebra" },
-  { subject: "Geometry" },
-  { subject: "Probability" },
-  { subject: "Statistics" },
-];
-
 export default function Document() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [topic, setTopic] = useState("");
@@ -30,19 +23,20 @@ export default function Document() {
   };
 
   // handle submit for date and topic
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Submitted Date:", selectedDate);
-    console.log("Submitted Topic:", topic);
+  const handleSubmit = async () => {
+    if (topic && selectedDate) {
+      const response = await fetch("http://localhost:3030/testdate");
+    }
   };
   // upload file
   const syllabusSubmit = async () => {
     if (syllabusFile) {
       const formData = new FormData();
-      formData.append("userId" /*userID from Auth context*/);
-      formData.append("subj" /*get from the query*/);
-      formData.append("file", syllabusFile); // use middleware to receive file
-      const response = await fetch("/upload/fileBasic", {
+      formData.append("userId", "user-1");
+      formData.append("subj", "History");
+      formData.append("file", syllabusFile); // use middleware to receive fileform
+      console.log(formData);
+      const response = await fetch("http://localhost:3030/upload/fileBasic", {
         method: "POST",
         body: formData,
       });
@@ -55,8 +49,8 @@ export default function Document() {
   const quizSubmit = async () => {
     if (quizFile) {
       const formData = new FormData();
-      formData.append("userId" /*userID from Auth context*/);
-      formData.append("subj" /*get from the query*/);
+      formData.append("userId", "user-1");
+      formData.append("subj", "History");
       formData.append("file", quizFile); // use middleware to receive file
       const response = await fetch("http://localhost:3030/upload/fileBasic", {
         method: "POST",
@@ -71,8 +65,8 @@ export default function Document() {
   const lectureSubmit = async () => {
     if (lectureFile) {
       const formData = new FormData();
-      formData.append("userId" /*userID from Auth context*/);
-      formData.append("subj" /*get from the query*/);
+      formData.append("userId", "user-1");
+      formData.append("subj", "History");
       formData.append("file", lectureFile); // use middleware to receive file
       const response = await fetch("http://localhost:3030/upload/fileSlides", {
         method: "POST",
@@ -102,7 +96,7 @@ export default function Document() {
                 className="d-flex flex-column"
                 onSubmit={syllabusSubmit}
                 onChange={(e) => {
-                  setSyllabusFile(e.target.value);
+                  setSyllabusFile(e.target.files[0]);
                 }}
               >
                 <input className="form-control mb-3" type="file" />
@@ -124,18 +118,6 @@ export default function Document() {
           </div>
           <div className="document-items-container mb-4 p-3">
             {/*map the items in here */}
-
-            {quiz_list.map((quiz, index) => (
-              <div
-                className="each-quiz-container d-flex justify-content-between"
-                key={index}
-              >
-                <span>{quiz.subject}</span>
-                <span>
-                  <FontAwesomeIcon icon={faRemove} className="remove-icon" />
-                </span>
-              </div>
-            ))}
           </div>
 
           <div className="row mb-5">
@@ -144,7 +126,7 @@ export default function Document() {
                 className="d-flex flex-column"
                 onSubmit={quizSubmit}
                 onChange={(e) => {
-                  setQuizFile(e.target.value);
+                  setQuizFile(e.target.files[0]);
                 }}
               >
                 <input className="form-control mb-3" type="file" />
@@ -203,7 +185,7 @@ export default function Document() {
                   className="form-control mb-3"
                   type="file"
                   onChange={(e) => {
-                    setLectureFile(e.target.value);
+                    setLectureFile(e.target.files[0]);
                   }}
                 />
                 <button className="upload-submit-button col-12">Upload</button>

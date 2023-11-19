@@ -35,10 +35,11 @@ function CircularProgressWithLabel(props) {
 
 const upcoming_quiz = { name: "Algebra", time: "Tomorrow", progress: 80 };
 
-export default function Info({ events }) {
+export default function Info() {
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1065px)" });
   const isSmallScreen = useMediaQuery({ query: "(max-width: 1064px)" });
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState(null);
+  const [event, setEvent] = useState(null);
   const [error, setError] = useState(null);
   let location = useLocation();
   useEffect(() => {
@@ -54,6 +55,16 @@ export default function Info({ events }) {
 
         if (response.ok) {
           setInfo(json);
+          const transformEvents = (events) => {
+            return events.map((event) => ({
+              ...event,
+              start: new Date(event.start),
+              end: new Date(event.end),
+            }));
+          };
+
+          const transformedCalendarEvents = transformEvents(json.Calendar);
+          setEvent(transformedCalendarEvents);
         } else {
           setError(json.error);
         }
@@ -105,7 +116,7 @@ export default function Info({ events }) {
                     className=" each-flashcard"
                   >
                     <h5>Math {/**card topic */}</h5>
-                    <p>10 cards</p>
+                    <p>info</p>
                   </a>
                 </div>
               </div>
@@ -135,14 +146,14 @@ export default function Info({ events }) {
           </div>
         )}
 
-        {isLargeScreen && (
+        {isLargeScreen && event && (
           <div className="col-lg-8">
             <BigCalendar
               localizer={localizer}
               components={{
                 toolbar: CustomToolbar,
               }}
-              events={events}
+              events={event}
               startAccessor="start"
               endAccessor="end"
               style={{ height: 500 }}
