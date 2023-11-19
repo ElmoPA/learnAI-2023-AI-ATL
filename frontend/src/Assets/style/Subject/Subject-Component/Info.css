@@ -47,7 +47,7 @@
 }
 
 .each-flashcard {
-  border: solid 1px #eeeeee;
+  border: solid 1px #cccddd;
   display: flex;
   padding-top: 1rem;
   flex-direction: column;

@@ -141,7 +141,7 @@ import { useEffect, useState } from "react";
 
 export default function Flashcard() {
   const [flip, setFlip] = useState(false);
-  const [cardList, setCardList] = useState([]);
+  const [cardList, setCardList] = useState(null);
   const [congrat, setCongrat] = useState(false);
   const [attempt, setAttempt] = useState(1);
   // fetch data (get method)
@@ -197,7 +197,7 @@ export default function Flashcard() {
   };
   return (
     <div className="flash-card-page-container">
-      {!congrat && (
+      {!congrat && cardList && (
         <div className="all-items-container">
           <div
             className={`flash-card-container ${flip ? "flip" : ""}`}

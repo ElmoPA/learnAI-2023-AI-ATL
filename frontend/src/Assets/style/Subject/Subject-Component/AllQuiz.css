@@ -1,5 +1,14 @@
 .allquiz-each-quiz {
   display: inline;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-inline: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+}
+
+.all-subject-link {
+  text-decoration: none;
+  color: #1d1d1f;
 }
