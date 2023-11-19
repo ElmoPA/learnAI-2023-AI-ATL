@@ -38,9 +38,9 @@ const upcoming_quiz = { name: "Algebra", time: "Tomorrow", progress: 80 };
 export default function Info({ events }) {
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1065px)" });
   const isSmallScreen = useMediaQuery({ query: "(max-width: 1064px)" });
-  let location = useLocation();
   const [info, setInfo] = useState("");
   const [error, setError] = useState(null);
+  let location = useLocation();
   useEffect(() => {
     const fetchData = async () => {
       try {

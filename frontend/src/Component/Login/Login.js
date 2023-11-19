@@ -36,6 +36,7 @@ export default function Login() {
             <img
               style={{ marginRight: "5px" }}
               width="20px"
+              alt="google"
               src={require("../../Assets/picture/Google_logo.png")}
             />
             <p className="mb-0 login-text">Google</p>

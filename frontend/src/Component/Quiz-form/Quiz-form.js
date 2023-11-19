@@ -42,7 +42,7 @@ export default function Quiz() {
       let userId = searchParams.get("userId");
       let subj = searchParams.get("subj");
       const response = await fetch(
-        `/quiz/display?userId=${userId}&subj=${subj}`
+        `http://localhost:3030/quiz/display?userId=${userId}&subj=${subj}`
       );
       const json = await response.json();
       console.log(json); 
@@ -60,7 +60,7 @@ export default function Quiz() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Selected option:", selectedOptions);
-    const response = await fetch("quiz/submitQuiz", {
+    const response = await fetch("/quiz/submitQuiz", {
       method: "POST",
       body: JSON.stringify({ answer: selectedOptions }),
       headers: { "Content-Type": "application/json" },
@@ -80,7 +80,6 @@ export default function Quiz() {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="question-section">
-              {/**map all the questions over here */}
               {quiz.map((q, qIndex) => {
                 if (q.type === "multiple_choice") {
                   return (

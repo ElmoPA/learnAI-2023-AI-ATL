@@ -1,7 +1,5 @@
 import "../../../Assets/style/Subject/Subject-Component/AllQuiz.css";
-import LinearProgress, {
-  LinearProgressProps,
-} from "@mui/material/LinearProgress";
+import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { linearProgressClasses } from "@mui/material/LinearProgress";

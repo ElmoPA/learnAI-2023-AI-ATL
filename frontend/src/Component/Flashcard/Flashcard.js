@@ -190,7 +190,7 @@ export default function Flashcard() {
         newList.push(currentCard); // Add to the end
         newList.splice(currentCard, 1); // Remove from current position
       }
-      if (newList.length == 0) {
+      if (newList.length === 0) {
         setCongrat(true);
       }
 
