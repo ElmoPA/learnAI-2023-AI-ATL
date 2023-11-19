@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { linearProgressClasses } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import { useLocation } from "react-router-dom";
 
 function randomColor(index) {
   const setColor = ["#fcf75e", "#f7a072", "#b5e2fa", "#0fa3b1"];
@@ -73,7 +74,6 @@ function LinearProgressWithLabel({ value, randomColor }) {
 }
 export default function Dashboard({ list }) {
   const [progressValues, setProgressValues] = useState(list.map(() => 0));
-
   useEffect(() => {
     const updateProgress = () => {
       setProgressValues(list.map((item) => item.progress));
@@ -91,7 +91,10 @@ export default function Dashboard({ list }) {
               className="col-sm-12 col-md-6 col-lg-4 mb-5 glass-effect"
               key={index}
             >
-              <a className="link-each-item" href={`/subject/${item.subjectId}`}>
+              <a
+                className="link-each-item"
+                href={`/subject?userId=user-1&subj=History`}
+              >
                 <div className="each-item">
                   <div className="top-part d-flex flex-column mb-4">
                     <h3 className="d-flex">{item.subject}</h3>

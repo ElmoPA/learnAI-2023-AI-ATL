@@ -16,23 +16,74 @@ export const quiz_list = [
 
 export default function Document() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const handleDateChange = (newValue) => {
-    setSelectedDate(newValue);
-  };
   const [topic, setTopic] = useState("");
+  const [syllabusFile, setSyllabusFile] = useState();
+  const [quizFile, setQuizFile] = useState();
+  const [lectureFile, setLectureFile] = useState();
+  const [error, setError] = useState(null);
 
   const handleTopicChange = (event) => {
     setTopic(event.target.value);
   };
+  const handleDateChange = (newValue) => {
+    setSelectedDate(newValue);
+  };
 
+  // handle submit for date and topic
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submitted Date:", selectedDate);
     console.log("Submitted Topic:", topic);
   };
-  const syllabusSubmit = () => {};
-  const quizSubmit = () => {};
-  const lectureSubmit = () => {};
+  // upload file
+  const syllabusSubmit = async () => {
+    if (syllabusFile) {
+      const formData = new FormData();
+      formData.append("userId" /*userID from Auth context*/);
+      formData.append("subj" /*get from the query*/);
+      formData.append("file", syllabusFile); // use middleware to receive file
+      const response = await fetch("/upload/fileBasic", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        setError(json.error);
+      }
+    }
+  };
+  const quizSubmit = async () => {
+    if (quizFile) {
+      const formData = new FormData();
+      formData.append("userId" /*userID from Auth context*/);
+      formData.append("subj" /*get from the query*/);
+      formData.append("file", quizFile); // use middleware to receive file
+      const response = await fetch("/upload/fileBasic", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        setError(json.error);
+      }
+    }
+  };
+  const lectureSubmit = async () => {
+    if (lectureFile) {
+      const formData = new FormData();
+      formData.append("userId" /*userID from Auth context*/);
+      formData.append("subj" /*get from the query*/);
+      formData.append("file", lectureFile); // use middleware to receive file
+      const response = await fetch("/upload/fileSlides", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        setError(json.error);
+      }
+    }
+  };
 
   return (
     <div className="document-page-container">
@@ -47,7 +98,13 @@ export default function Document() {
 
           <div className="row">
             <div className="col-11">
-              <form className="d-flex flex-column" onSubmit={syllabusSubmit}>
+              <form
+                className="d-flex flex-column"
+                onSubmit={syllabusSubmit}
+                onChange={(e) => {
+                  setSyllabusFile(e.target.value);
+                }}
+              >
                 <input className="form-control mb-3" type="file" />
                 <button className="upload-submit-button col-12">Upload</button>
               </form>
@@ -83,7 +140,13 @@ export default function Document() {
 
           <div className="row mb-5">
             <div className="col-11">
-              <form className="d-flex flex-column" onSubmit={quizSubmit}>
+              <form
+                className="d-flex flex-column"
+                onSubmit={quizSubmit}
+                onChange={(e) => {
+                  setQuizFile(e.target.value);
+                }}
+              >
                 <input className="form-control mb-3" type="file" />
                 <button className="upload-submit-button col-12">Upload</button>
               </form>
@@ -136,7 +199,13 @@ export default function Document() {
           <div className="row">
             <div className="col-11">
               <form className=" d-flex flex-column" onSubmit={lectureSubmit}>
-                <input className="form-control mb-3" type="file" />
+                <input
+                  className="form-control mb-3"
+                  type="file"
+                  onChange={(e) => {
+                    setLectureFile(e.target.value);
+                  }}
+                />
                 <button className="upload-submit-button col-12">Upload</button>
               </form>
             </div>

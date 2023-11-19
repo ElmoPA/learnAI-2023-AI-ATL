@@ -82,7 +82,7 @@ function LinearProgressWithLabel({ value, randomColor }) {
 export default function AllQuiz() {
   return (
     <div className="statistics-page-container py-4 px-4">
-      <h2 className="mb-5  mt-3">Quiz List</h2>
+      <h2 className="mb-4  mt-3">Quiz List</h2>
       <div className="d-flex flex-column">
         {/**map of the all the quiz */}
         {quiz_list.map((quiz, index) => (

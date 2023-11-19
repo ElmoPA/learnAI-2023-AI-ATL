@@ -7,6 +7,8 @@ import { CustomToolbar } from "../../Function-Component/CustomToolbar";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 const localizer = momentLocalizer(moment);
 
 function CircularProgressWithLabel(props) {
@@ -36,10 +38,36 @@ const upcoming_quiz = { name: "Algebra", time: "Tomorrow", progress: 80 };
 export default function Info({ events }) {
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1065px)" });
   const isSmallScreen = useMediaQuery({ query: "(max-width: 1064px)" });
+  let location = useLocation();
+  const [info, setInfo] = useState("");
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let searchParams = new URLSearchParams(location.search);
+        let userId = searchParams.get("userId");
+        let subj = searchParams.get("subj");
+        const response = await fetch(
+          `http://localhost:3030/dashboard/subject?userId=${userId}&subj=${subj}`
+        );
+        const json = await response.json(); // Add 'await' here
+
+        if (response.ok) {
+          setInfo(json);
+        } else {
+          setError(json.error);
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+        setError(error);
+      }
+    };
+    fetchData();
+  }, [location.search]);
   return (
     <div className="subject-container">
       <div className="row">
-        {isLargeScreen && (
+        {isLargeScreen && info && (
           <div className="col-4 d-flex justify-content-center">
             <div className="today-container col-11 d-flex flex-column">
               <div>
@@ -50,7 +78,7 @@ export default function Info({ events }) {
                     {/*the link oer her*/}
                     <div className="card d-flex flex-column p-4 rounded-4">
                       <div>
-                        <h4>{upcoming_quiz.name}</h4>
+                        <h4>{info.Quiz[0]}</h4>
                       </div>
                       <div>
                         <h6 className="mb-4">Time : {upcoming_quiz.time}</h6>

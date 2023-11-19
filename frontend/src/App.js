@@ -16,7 +16,7 @@ export default function App() {
           <Route path="/main"></Route>
           <Route path="/function" element={<Function />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/subject/:subjectId" element={<Subject />}></Route>
+          <Route path="/subject" element={<Subject />}></Route>
           <Route path="/quiz/:quizId" element={<Quiz />}></Route>
           <Route path="/flashcard/:flashcardId" element={<Flashcard />}></Route>
         </Routes>

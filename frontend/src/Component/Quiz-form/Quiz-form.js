@@ -111,6 +111,35 @@ export default function Quiz() {
                 </div>
               );
             }
+            if (q.type === "true_false") {
+              return (
+                <div className="each-question mb-4" key={qIndex}>
+                  <h4 className="question-text mb-3">{q.question}</h4>
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      value={true}
+                      name={`question-${qIndex}`}
+                      checked={selectedOptions[qIndex] === true}
+                      onChange={() => handleOptionChange(qIndex, true)}
+                      className="option"
+                    />
+                    True
+                  </label>
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      value={false}
+                      name={`question-${qIndex}`}
+                      checked={selectedOptions[qIndex] === false}
+                      onChange={() => handleOptionChange(qIndex, false)}
+                      className="option"
+                    />
+                    False
+                  </label>
+                </div>
+              );
+            }
           })}
         </div>
         <div className="submit-answer-section">
