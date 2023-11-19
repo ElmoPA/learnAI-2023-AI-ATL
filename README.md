@@ -1,4 +1,5 @@
 LearnarAI 🚀
+
 Welcome to LearnarAI, your AI-powered companion for transformative learning! 📚✨
 
 Table of Contents
@@ -20,8 +21,8 @@ More Features...
 Getting Started 🛠️
 To get started with LearnarAI:
 
-Clone the repo: git clone https://github.com/your-repository/learnarai.git
-Install dependencies: cd learnarai && npm install
+Clone the repo: git clone https://github.com/ElmoPA/learnAI-2023-AI-ATL.git
+Install dependencies: cd learnarai && npm install && cd studyarAI-backend
 Run the application: npm start
 Detailed Setup Guide
 Usage 💻
